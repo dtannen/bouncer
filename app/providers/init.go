@@ -3,8 +3,9 @@ package providers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/revel/revel"
 	"strings"
+
+	"github.com/revel/revel"
 )
 
 var AllowedProviderGenerators = make(map[string]NewAuthProvider)
@@ -42,6 +43,8 @@ func init() {
 					AllowedProviderGenerators["linkedin"] = NewLinkedinAuthProvider
 				case "twitter":
 					AllowedProviderGenerators["twitter"] = NewTwitterAuthProvider
+				case "github":
+					AllowedProviderGenerators["github"] = NewGithubAuthProvider
 				default:
 					revel.WARN.Printf("Provider <%s> is not known. Skipped.", providerItm)
 				}

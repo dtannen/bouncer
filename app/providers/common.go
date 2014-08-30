@@ -10,14 +10,15 @@ import (
 	"encoding/base64"
 	//"encoding/json"
 	"errors"
-	"github.com/paulxtiseo/check"
-	"github.com/revel/revel"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/paulxtiseo/check"
+	"github.com/revel/revel"
 )
 
 type AuthConfig struct {
@@ -34,7 +35,7 @@ type AuthConfig struct {
 var AuthConfigValidator = check.Struct{
 	"CallbackUrl": check.Composite{
 		check.NonEmpty{},
-		check.URI{},
+		// check.URI{},
 	},
 	"ConsumerKey": check.Composite{
 		check.NonEmpty{},
@@ -50,11 +51,11 @@ var AuthConfigValidator = check.Struct{
 	},*/
 	"AuthorizeUrl": check.Composite{
 		check.NonEmpty{},
-		check.URI{},
+		// check.URI{},
 	},
 	"AccessTokenUrl": check.Composite{
 		check.NonEmpty{},
-		check.URI{},
+		// check.URI{},
 	},
 	"Permissions": check.Composite{
 		check.NonEmpty{},
